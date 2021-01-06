@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produto{% endblock %}
+
+{% block body %}
+    <h1>Produto</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produto.id }}</td>
+            </tr>
+            <tr>
+                <th>Nome</th>
+                <td>{{ produto.nome }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ produto.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Peso</th>
+                <td>{{ produto.peso }}</td>
+            </tr>
+            <tr>
+                <th>Quantidade</th>
+                <td>{{ produto.quantidade }}</td>
+            </tr>
+            <tr>
+                <th>Preço</th>
+                <td>{{ produto.preco }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('produto_index') }}">voltar</a>
+
+    <a href="{{ path('produto_edit', {'id': produto.id}) }}">editar</a>
+
+    {{ include('produto/_delete_form.html.twig') }}
+{% endblock %}

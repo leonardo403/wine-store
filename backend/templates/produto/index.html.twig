@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produto index{% endblock %}
+
+{% block body %}
+    <h1>Cadastrar vinho</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Peso</th>
+                <th>quantidade</th>
+                <th>Preço</th>
+                <th>ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.id }}</td>
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.tipo }}</td>
+                <td>{{ produto.peso }}</td>
+                <td>{{ produto.quantidade }}</td>
+                <td>{{ produto.preco }}</td>
+                <td>
+                    <a href="{{ path('produto_show', {'id': produto.id}) }}">ver</a>
+                    <a href="{{ path('produto_edit', {'id': produto.id}) }}">editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Nenhum vinho cadastrado!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produto_new') }}">Novo produto</a>
+{% endblock %}

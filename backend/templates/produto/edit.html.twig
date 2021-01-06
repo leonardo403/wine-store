@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alterar o Produto{% endblock %}
+
+{% block body %}
+    <div class="form-group">
+    <h1>Alterar Produto</h1>
+
+    {{ include('produto/_form.html.twig', {'button_label': 'Alterar'}) }}
+
+    <a href="{{ path('produto_index') }}">voltar</a>
+
+    {{ include('produto/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
